@@ -9,5 +9,7 @@ python3 runCast.py
 
 # References
 The cast matrix and data files were obtained from http://pongor.itk.ppke.hu/benchmark/#/Browse
+
 The original source of the protein data:
+
 Pollack, J.D., Li, Q. and Pearl, D.K. (2005) Taxonomic utility of a phylogenetic analysis of phosphoglycerate kinase proteins of Archaea, Bacteria, and Eukaryota: insights by Bayesian analyses, Mol Phylogenet Evol, 35, 420-430. 
