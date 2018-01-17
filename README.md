@@ -4,7 +4,8 @@ This is a tool for performing K-means clustering on a set of protein strings. Th
 stringKmeans.py is a stand-alone module whose syntax is based upon the scikit-learn kmeans function. 
 
 I have provided some sample data to demonstrate how it works. To run with default parameters on the sample data, type these commands:
-python3 vectorScriptExample.py
+
+python3 vectorScriptExample.py  
 python3 runCast.py
 
 # References
