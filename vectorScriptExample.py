@@ -11,7 +11,7 @@ import fragData
 np.random.seed(0)
 start_time = time.time()
 # ncpus = multiprocessing.cpu_count()
-ncpus = 12
+ncpus = 2
 
 def main():
 
@@ -22,7 +22,7 @@ def main():
 	except: numClusters = 100
 
 	try: max_iter = float(sys.argv[3])
-	except: max_iter = 2
+	except: max_iter = 10
 
 	try: outFile = sys.argv[4]
 	except:	outFile = 'temp/kdata'
