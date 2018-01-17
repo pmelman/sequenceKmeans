@@ -63,27 +63,6 @@ def main():
 	print("--- kmeans done %.2f seconds ---" % (time.time() - start_time))
 
 
-# def makeVector(seqFrags):
-
-# 	frags = []
-# 	for f in seqFrags:
-# 		fragvec = []
-# 		dist = f['dist']
-# 		numClusters = int(sys.argv[1])
-
-# 		fragMean = f['totaldist'] / numClusters
-# 		for i in range(numClusters):
-# 			if i == f['cluster']:
-# 				fragvec.append(fragMean + dist)
-# 			else:
-# 				fragvec.append(0)
-
-# 		frags.append(fragvec)
-
-# 	# sum pool all frags in seq into one vector
-# 	fv = np.sum(np.array(frags), axis=0)
-# 	return fv
-
 def makeVector(seqFrags, numClusters):
 
 	fragVectors = []
