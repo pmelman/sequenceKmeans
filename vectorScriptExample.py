@@ -69,15 +69,26 @@ def makeVector(seqFrags, numClusters):
 	for frag in seqFrags:
 		fragvec = []
 
-		dist = frag['dist']
+		# fragMean = frag['totaldist'] / numClusters
+		# dist = frag['dist']
+		# for i in range(numClusters):
+		# 	if i == frag['cluster']:
+		# 		fragvec.append(fragMean + dist)
+		# 	else:
+		# 		fragvec.append(0)
+
+		# fragVectors.append(fragvec)
+
+
+
 		fragMean = frag['totaldist'] / numClusters
 		for i in range(numClusters):
-			if i == frag['cluster']:
-				fragvec.append(fragMean + dist)
-			else:
-				fragvec.append(0)
-
-		fragVectors.append(fragvec)
+			# print(i, frag['top3'])
+			for top in frag['top3']:
+				if i == top[1]:
+					fragvec.append(fragMean + top[0])
+				else:
+					fragvec.append(0)
 
 	# sum pool all frags in seq into one vector
 	fv = np.sum(np.array(fragVectors), axis=0)

@@ -1,9 +1,6 @@
-import time, sys, math, multiprocessing
+import multiprocessing
 import numpy as np
 from functools import partial
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 
 # ncpus = multiprocessing.cpu_count()
@@ -117,6 +114,7 @@ class kmeans(object):
 
 
 	def transform(self):
+	# For each point, return array of distances to each centroid
 
 		pool = multiprocessing.Pool(ncpus)
 
@@ -132,22 +130,20 @@ class kmeans(object):
 def allDistances(p, centroids):
 
 	distances = []
-	# distances = np.array([], dtype=np.int16)
 
 	for i, centroid in enumerate(centroids):
 		distance = blosumDistance(p['val'], centroid)
 		# distance = hammingDistance(p['val'], centroid)
 		distances.append(distance)
-		# np.append(distances, distance)
 
 	return np.array(distances, dtype=np.float16)
-	# return distances
 
 
 def updatePoint(p, centroids):
 
 	clusterIndex = -1
 	smallestDistance = 10000000
+	top3 = [[100000, -1], [100000, -1], [100000, -1]]
 
 	totalDist = 0
 	for i, centroid in enumerate(centroids):
@@ -159,9 +155,15 @@ def updatePoint(p, centroids):
 			smallestDistance = distance
 			clusterIndex = i
 
+		if distance < top3[-1][0]:
+			del top3[-1]
+			top3.append([distance, i])
+			top3.sort()
+
 	p['dist'] = smallestDistance
 	p['totaldist'] = totalDist
 	p['cluster'] = clusterIndex
+	p['top3'] = top3
 	return p
 
 
