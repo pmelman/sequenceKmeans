@@ -13,6 +13,7 @@ start_time = time.time()
 # ncpus = multiprocessing.cpu_count()
 ncpus = 2
 
+
 def main():
 
 	try: inFile = sys.argv[1]
