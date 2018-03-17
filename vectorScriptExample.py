@@ -10,8 +10,8 @@ import fragData
 
 np.random.seed(0)
 start_time = time.time()
-# ncpus = multiprocessing.cpu_count()
-ncpus = 2
+ncpus = multiprocessing.cpu_count()
+# ncpus = 4
 
 
 def main():
@@ -23,7 +23,7 @@ def main():
 	except: numClusters = 100
 
 	try: max_iter = float(sys.argv[3])
-	except: max_iter = 10
+	except: max_iter = 3
 
 	try: outFile = sys.argv[4]
 	except:	outFile = 'temp/kdata'
@@ -78,9 +78,6 @@ def makeVector(seqFrags, numClusters):
 		# 	else:
 		# 		fragvec.append(0)
 
-		# fragVectors.append(fragvec)
-
-
 
 		fragMean = frag['totaldist'] / numClusters
 		for i in range(numClusters):
@@ -90,6 +87,9 @@ def makeVector(seqFrags, numClusters):
 					fragvec.append(fragMean + top[0])
 				else:
 					fragvec.append(0)
+
+
+		fragVectors.append(fragvec)
 
 	# sum pool all frags in seq into one vector
 	fv = np.sum(np.array(fragVectors), axis=0)

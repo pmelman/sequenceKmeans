@@ -18,17 +18,14 @@ def runData(col):
 	return auc, err
 
 
-try:
-	castFile = sys.argv[1]
-	dataFile = sys.argv[2]
-except:
-	castFile = 'sample_data/3PGK_15.cast'
-	dataFile = 'temp/kdata'
+try: castFile = sys.argv[1]
+except: castFile = 'sample_data/3PGK_15.cast'
 
-try:
-	outFile = sys.argv[3]
-except:
-	outFile = 'output'
+try: dataFile = sys.argv[2]
+except: dataFile = 'temp/kdata'
+
+try: outFile = sys.argv[3]
+except: outFile = 'output'
 
 castID = os.path.split(castFile)[-1][:-5]
 

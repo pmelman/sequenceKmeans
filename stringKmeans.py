@@ -3,8 +3,8 @@ import numpy as np
 from functools import partial
 
 
-# ncpus = multiprocessing.cpu_count()
-ncpus = 2
+ncpus = multiprocessing.cpu_count()
+# ncpus = 2
 
 class kmeans(object):
 
