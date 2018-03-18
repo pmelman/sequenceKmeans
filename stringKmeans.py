@@ -163,7 +163,7 @@ def updatePoint(p, centroids):
 	p['dist'] = smallestDistance
 	p['totaldist'] = totalDist
 	p['cluster'] = clusterIndex
-	p['top3'] = top3
+	p['top3'] = np.array(top3, dtype=np.float16)
 	return p
 
 
