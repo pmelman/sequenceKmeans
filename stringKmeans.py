@@ -1,10 +1,6 @@
 import time, sys, math, multiprocessing
 import numpy as np
 from functools import partial
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
 
 # ncpus = multiprocessing.cpu_count()
 ncpus = 2

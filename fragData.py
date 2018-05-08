@@ -17,8 +17,7 @@ def getData(inFile, fragLen):
 			allData.append([seqIdx, f.upper()])
 		seqIdx += 1
 
-	print("frag done:", len(allData), "frags")
-
+	
 	return np.array(allData), np.array(names)
 
 def fragment(seq, fragLen, stride=1):

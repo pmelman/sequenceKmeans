@@ -8,7 +8,7 @@ from functools import partial
 import stringKmeans as cluster
 import fragData
 
-np.random.seed(0)
+# np.random.seed(0)
 start_time = time.time()
 # ncpus = multiprocessing.cpu_count()
 ncpus = 2
@@ -22,7 +22,7 @@ def main():
 	except: numClusters = 100
 
 	try: max_iter = float(sys.argv[3])
-	except: max_iter = 10
+	except: max_iter = 3
 
 	try: outFile = sys.argv[4]
 	except:	outFile = 'temp/kdata'
@@ -35,6 +35,7 @@ def main():
 	labels = fragArray[:,0]
 	frags = fragArray[:,1]
 
+	print(len(frags), "frags")
 	print(numClusters, "clusters")
 
 	X = cluster.kmeans(n_clusters=numClusters, load_centroids=centroidFile, max_iter=max_iter, verbose=True)

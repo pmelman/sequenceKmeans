@@ -6,29 +6,27 @@ import sys, os, time, multiprocessing
 import classify
 
 start_time = time.time()
+ncpus = 2
 
 def runData(col):
 	global auc_sum
 	global err_sum
 
 	clf = classify.classifier(dataFile, castFile, col)
-	err, auc = clf.SVM(C=.001)
+	err, auc = clf.SVM(C=.1)
 	# err, auc = clf.SGD()
 
 	return auc, err
 
 
-try:
-	castFile = sys.argv[1]
-	dataFile = sys.argv[2]
-except:
-	castFile = 'sample_data/3PGK_15.cast'
-	dataFile = 'temp/kdata'
+try: castFile = sys.argv[1]
+except: castFile = 'sample_data/3PGK_15.cast'
 
-try:
-	outFile = sys.argv[3]
-except:
-	outFile = 'output'
+try: dataFile = sys.argv[2]
+except: dataFile = 'temp/kdata'
+
+try: outFile = sys.argv[3]
+except: outFile = 'output'
 
 castID = os.path.split(castFile)[-1][:-5]
 
@@ -37,7 +35,7 @@ cols = len(castMatrix[0]) - 1
 print(castID)
 print(cols, "cols")
 
-pool = multiprocessing.Pool(4)
+pool = multiprocessing.Pool(ncpus)
 results = pool.map(runData, [c for c in range(1, cols+1)])
 pool.close()
 
