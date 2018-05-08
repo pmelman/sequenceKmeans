@@ -10,7 +10,10 @@ python3 runCast.py
 
 # How it works
 First the sequences are broken into fragments
-![test](images/fragment.png)
+
+<p align="center">
+  <img src="images/fragment.PNG" width="350"/>
+</p>
 
 # References
 The cast matrix and data files were obtained from http://pongor.itk.ppke.hu/benchmark/#/Browse
