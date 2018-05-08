@@ -1,7 +1,7 @@
 # sequenceKmeans
 This is a tool for performing K-means clustering on a set of protein strings. The scripts contained here can be used to transform a set of protein sequences into a set of feature vectors by using K-means feature learning. Multithreading is supported, simply change the value of ncpus.
 
-stringKmeans.py is a stand-alone module whose syntax is based upon the scikit-learn kmeans function. 
+stringKmeans.py is a stand-alone module whose syntax is based upon the scikit-learn KMeans function. 
 
 I have provided some sample data to demonstrate how it works. To run with default parameters on the sample data, type these commands:
 
@@ -9,14 +9,16 @@ python3 vectorScriptExample.py
 python3 runCast.py
 
 The full syntax is:
-python3  vector.py  seq_file_path  num_clusters  max_iter  outfile  centroid_loadfile(optional)
+
+
+python3  vector.py  seq_file_path  num_clusters  max_iter  outfile  centroid_loadfile(optional)  
 python3  runCast.py  cast_matrix_path  data_path  outfile
 
 # How it works
 First the sequences are broken into fragments.
 
 <p align="center">
-  <img src="images/fragment.PNG" width="400"/>
+  <img src="images/fragment.PNG" width="500"/>
 </p>
 
 Then the fragments are clustered according to the K-means algorithm. The centroid of each cluster is computed by taking the mode at each character position.
