@@ -2,7 +2,7 @@ import sys
 import numpy as np
 from Bio import SeqIO
 
-def getData(inFile, fragLen):
+def getData(inFile, fragLen, stride=1):
 
 	seqs = [line for line in SeqIO.parse(inFile, 'fasta')]
 	names = [(s.id, len(s)) for s in seqs]
@@ -12,7 +12,7 @@ def getData(inFile, fragLen):
 
 	for s in seqs:
 		seq = str(s.seq).upper()
-		frags = fragment(seq, fragLen)
+		frags = fragment(seq, fragLen, stride)
 		for f in frags:
 			allData.append([seqIdx, f.upper()])
 		seqIdx += 1
@@ -20,7 +20,7 @@ def getData(inFile, fragLen):
 	
 	return np.array(allData), np.array(names)
 
-def fragment(seq, fragLen, stride=1):
+def fragment(seq, fragLen, stride):
 
 	# If seq is too short, pad with X (unknown amino acid)
 	if len(seq) < fragLen:
