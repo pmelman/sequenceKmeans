@@ -10,8 +10,7 @@ python3 runCast.py
 
 The full syntax is:
 
-
-python3  vector.py  seq_file_path  num_clusters  max_iter  outfile  centroid_loadfile(optional)  
+python3  vectorScriptExample.py  seq_file_path  num_clusters  max_iter  outfile  centroid_loadfile(optional)  
 python3  runCast.py  cast_matrix_path  data_path  outfile
 
 # How it works

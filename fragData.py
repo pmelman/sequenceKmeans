@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 def getData(inFile, fragLen):
 
-	seqs = [l for l in SeqIO.parse(inFile, 'fasta')]
+	seqs = [line for line in SeqIO.parse(inFile, 'fasta')]
 	names = [(s.id, len(s)) for s in seqs]
 
 	allData = []
@@ -37,15 +37,11 @@ def fragment(seq, fragLen, stride=1):
 
 if __name__ == "__main__":
 
-	try:
-		inFile = sys.argv[1]
-	except:
-		inFile = 'sample_data/3PGK_PROTEIN.fasta'
+	try: inFile = sys.argv[1]
+	except: inFile = 'sample_data/3PGK_PROTEIN.fasta'
 
-	try:
-		fragLen = int(sys.argv[2])
-	except:
-		fragLen = 14
+	try: fragLen = int(sys.argv[2])
+	except: fragLen = 14
 
 	data, names = getData(data, fragLen)
 

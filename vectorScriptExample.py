@@ -31,7 +31,7 @@ def main():
 	except: centroidFile = False
 
 	# Create fragments of len 14 from sequence file
-	fragArray = fragData.getData(inFile, 14)[0]
+	fragArray = fragData.getData(inFile, fragLen=14, stride=1)[0]
 	labels = fragArray[:,0]
 	frags = fragArray[:,1]
 
