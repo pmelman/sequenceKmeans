@@ -12,7 +12,19 @@ python3 runCast.py
 First the sequences are broken into fragments
 
 <p align="center">
-  <img src="images/fragment.PNG" width="350"/>
+  <img src="images/fragment.PNG" width="400"/>
+</p>
+
+Then the fragments are clustered according to the K-means algorithm. The centroid of each cluster is computed by taking the mode at each character position
+
+<p align="center">
+  <img src="images/cluster.PNG" width="450"/>
+</p>
+
+A final feature vector is created for each of the original sequences based on which centroids each of its fragments were nearest to
+
+<p align="center">
+  <img src="images/fragment.PNG" width="550"/>
 </p>
 
 # References
