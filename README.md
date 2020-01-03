@@ -10,8 +10,8 @@ python3 runCast.py
 
 The full syntax is:
 
-python3  vectorScriptExample.py  seq_file_path  num_clusters  max_iter  outfile  centroid_loadfile(optional)  
-python3  runCast.py  cast_matrix_path  data_path  outfile
+python3  vectorScriptExample.py  sequence_filepath  number_of_clusters  max_iterations  outfile  centroid_loadfile(optional)  
+python3  runCast.py  cast_matrix_filepath  data_filepath  output_file
 
 # How it works
 First the sequences are broken into fragments.
